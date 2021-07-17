@@ -29,7 +29,7 @@ export function Table({ headers = [], rowRenderer = () => [], data = [] }) {
 
 export function TableHead({ headers = [] }) {
   const header = `| ${headers.join(' | ')} |`;
-  const breaks = `|${Array(headers.length).fill('-|').join('')}`;
+  const breaks = `|${Array(headers.length).fill('---|').join('')}`;
 
   return (
     <>
@@ -57,3 +57,12 @@ export function BlockQuote({ childrenContent = "" }) {
   return <Text newLines={2}>{`> ${childrenContent}`}</Text>
 }
 
+export function Tags({ tags = [] }) {
+  return (
+    <Text>
+      {tags.map(tag => (
+        <ListItem>{tag.name()}</ListItem>
+      ))}
+    </Text>
+  );
+}
